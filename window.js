@@ -62,10 +62,11 @@ function uploadinformation(){
     myConsole.log("uploadinformation");
     var id = document.getElementById("excelid");
     var obj = xlsx.parse(id.files[0].path)
-    var info = {};
+    
     var arrayinfo = new Array();
     for(var i=1; i<obj[0].data.length; i++)
     {
+        var info = {};
         myConsole.log("yuzhehui" + obj[0].data[i]);
         for(var j=0; j<obj[0].data[i].length; j++)
         {
@@ -73,11 +74,12 @@ function uploadinformation(){
             myConsole.log("info: " + JSON.stringify(info));
         }
         arrayinfo.push(info);
+        // info = {};
         myConsole.log("arrayinfo : " + JSON.stringify(arrayinfo));
     }
-    // db.insert(info, function(err, newDoc){
-    //     myConsole.log("err" + err);
-    // })
+    db.insert(arrayinfo, function(err, newDoc){
+        myConsole.log("err" + err);
+    })
 
     myConsole.log("id.value: " + id.files[0].path);
 }
