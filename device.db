@@ -1,3 +1,8 @@
-{"type":"A","name":"Hello","ipAddress":"192.168.98.192","hostPort":"1234","adbPort":"5555","serialPort":"5000","controlPort":"4321","country":"CN","_id":"0au2j4PJz6532lSX"}
-{"type":"A","name":"Hello","ipAddress":"192.168.98.192","hostPort":1234,"adbPort":5555,"serialPort":5000,"controlPort":4321,"country":"CN","_id":"EKZ7WqVjECMLgz20"}
-{"type":"A","name":"nihao","ipAddress":"123","hostPort":"456","adbPort":"789","serialPort":"456","controlPort":"123","country":"TW","_id":"sOwZDOr2LRTVLxTG"}
+{"type":"B","name":"yangyang","ipAddress":"192.168.98.193","hostPort":1235,"adbPort":5556,"serialPort":5001,"controlPort":4322,"country":"CN","_id":"4gKFkIEpyPX0B2kB"}
+{"type":"B","name":"yangyang","ipAddress":"192.168.98.193","hostPort":1235,"adbPort":5556,"serialPort":5001,"controlPort":4322,"country":"CN","_id":"DACXGqMjRVcDfCwO"}
+{"country":"CN","_id":"FNtHbzeSh9XrlOcc"}
+{"type":"B","name":"yangyang","ipAddress":"192.168.98.193","hostPort":1235,"adbPort":5556,"serialPort":5001,"controlPort":4322,"country":"CN","_id":"Lbfh3rWyjQidFrJq"}
+{"type":"B","name":"yangyang","ipAddress":"192.168.98.193","hostPort":1235,"adbPort":5556,"serialPort":5001,"controlPort":4322,"country":"CN","_id":"O0xqoQpTLSp8YgpP"}
+{"type":"B","name":"yangyang","ipAddress":"192.168.98.193","hostPort":1235,"adbPort":5556,"serialPort":5001,"controlPort":4322,"country":"CN","_id":"a4EOULac0qZS9o7u"}
+{"type":"B","name":"yangyang","ipAddress":"192.168.98.193","hostPort":1235,"adbPort":5556,"serialPort":5001,"controlPort":4322,"country":"CN","_id":"qRW83if4XoRXITTj"}
+{"type":"B","name":"yangyang","ipAddress":"192.168.98.193","hostPort":1235,"adbPort":5556,"serialPort":5001,"controlPort":4322,"country":"CN","_id":"vAKiDlcuM4yxx54z"}
