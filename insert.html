@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Notifications Sample</title>
+		<link rel="stylesheet" href="style.css">
+		<!-- <link rel="stylesheet" type="text/css" href="http://javascriptbook.com/fonts/183733/D6DB7E6AA6DC2084C.css" /> -->
+	</head>
+	
+	<body>
+		<header class="header">
+			<div class="container">
+
+				<div class="diamond-box">
+				<a href="window.html" title="Home" class="diamond-logo">home</a>
+				</div>
+				<div class="first-nav">
+				<a href="insert.html" >插入</a>
+				<a href="query.html" >查询</a>
+				</div>
+				<div class="second-nav">
+				<a href="/extras/" >导入</a>
+				<a href="/buy/" >Buy</a>
+				</div>
+
+			</div><!-- .container -->
+		</header>
+
+		<form id="login" method="POST">
+			模拟器类型: <input type="text" name="type"> <br>
+			模拟器名字: <input type="text" name="name"> <br>
+			模拟器ip地址: <input type="text" name="ipAddress"> <br>
+			socketidl的端口号: <input type="text" name="hostPort"> <br>
+			adb的端口号: <input type="text" name="adbPort"> <br>
+			模拟器的串口号: <input type="text" name="serialPort"> <br>
+			控制电源的小盒子的串口号: <input type="text" name="controlPort"> <br>
+			仕向地: <input type="text" name="country"> <br> 
+		  <input type="button" value="Submit" onclick="saveinformation()">
+		</form>
+		<script src="window.js"></script>
+	</body>
+</html>

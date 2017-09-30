@@ -1,0 +1,544 @@
+/* CONTENTS
+   1) Resets
+   2) Type
+   3) Color
+   4) Features
+   5) a) Animations
+      b) Drop shadow
+      c) Slider
+      d) Accordion
+      e) Extras
+      f) Stickers / buttons
+      g) Chapter list
+      h) Code samples
+      i) Release dates (to be removed)
+   6) Layout (general followed by responsive)
+   ========================================================================== */
+
+
+/* Reset some stuff...
+   ========================================================================== */
+   body                  { margin: 0; }
+   a                     { background: transparent; }
+   a:active, a:hover     { outline: 0; }
+   b, strong             { font-weight: bold; }
+   h1                    { font-size: 2em; margin: 0em 0; }
+   sup                   { top: -0.5em; }
+   sub                   { bottom: -0.25em; }
+   sub, sup              { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+   figure                { margin: 1em 40px; }
+   hr                    { -moz-box-sizing: content-box; box-sizing: content-box; height: 0; }
+   input                 { line-height: normal; }
+   textarea              { overflow: auto; }
+   code, kbd, pre, samp  { font-family: monospace, monospace; font-size: 1em; }
+   article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary { display: block; }
+   button::-moz-focus-inner,
+   input::-moz-focus-inner { border: 0; padding: 0; }
+   
+   
+   /* Type 
+      ==========================================================
+      Headings, standfirsts:   Gotham
+      Body text:               Whitney
+      ========================================================== */
+   html, body {
+     font: 100%/1.5;
+     font-weight: normal;
+     font-family: 'Gotham A', 'Gotham B',  Helvetica, Arial, sans-serif;
+     text-rendering: optimizeLegibility;
+     -webkit-font-smoothing: antialiased;
+     text-align: left;
+     -ms-text-size-adjust: 100%;
+     -webkit-text-size-adjust: 100%;}
+   
+   p, td, .other-books,
+   .chapter-list        { font-family: 'Whitney A', 'Whitney B',  Helvetica, Arial, sans-serif; }
+   
+   h1, h2, h3, h4      { font-weight: normal; line-height: 1.3em; margin: 0 0 0.5em 0; }
+   .full h1, h2        { font-weight: 500; }
+   h3                  { font-weight: bold; text-transform: uppercase; }
+   a                   { font-weight: bold; text-decoration: none; }
+   
+   .header, .footer    { font-weight: bold; text-transform: uppercase; text-align: center;}
+   .first-nav          { text-align: left; }
+   .second-nav         { text-align: right; }
+   
+   .navigation a       { font-size: 0.8em; }
+   .social-links a     { font-size: 1.6em; }
+   
+   .text-left          { text-align: left; }
+   .text-right         { text-align: right; }
+   .text-center        { text-align: center; }
+   
+   .sticker            { text-align: center; font-weight: normal; }
+   .sticker h4         { font-size: 0.8em; text-transform: uppercase; line-height: 1.2em; }
+   .sticker h5         { font-size: 0.7em; }
+   .sticker p          { line-height: 1em; }
+   .sticker .rrp       { font-size: 0.5em; line-height: 1.5em; }
+   .price              { font-size: 1.3em; font-weight: bold; }
+   
+   .quote              { font-weight: normal; }
+   
+   td                  { vertical-align: top; }
+   .role               { font-weight: bold; }
+   .numeral            { font-size: 3.4em; text-align: center; }
+   .code-chapter       { font-weight: normal; text-align: center; }
+   .chapter-number     { font-size: 2.4em; margin: 0.5em 0; }
+   
+   .bullets            { list-style-image: url(../images/interface/bullet.png);
+                         list-style-position: inside; padding-bottom: 1em; }
+   
+   .accordion-panel    { font-family: 'Whitney A', 'Whitney B',  Helvetica, Arial, sans-serif; font-weight: normal, line-height: 1.5em; }
+   
+   /* Colors
+      ==========================================================
+      green       = 0aa696    dark chalk  = dedad9
+      salmon      = ee717c    mid grey    = 958f89
+      mustard     = fab843    dark slate  = 352e2f
+      ========================================================== */
+   
+   body                    { background-color: #dedad9; color: #352e2f; }
+   
+   a                       { color: #0aa696; }
+   
+   .header a, 
+   .footer a,
+   .social-links a,
+   a .chapter-number       { color: #958f89; }
+   
+   a .chapter-title,
+   a.crosspromo            { color: #352e2f; }
+   
+   a:hover,
+   a.on                    { color: #ee717c; }
+   
+   a:hover .chapter-number,
+   a:hover .chapter-title  { color: #ee717c; }
+   a.crosspromo:hover      { color: #0aa696; }
+   
+   .header                 { background-color: #ffffff; }
+   
+   .sticker                { background-color: #ee717c; }
+   .sticker:hover          { background-color: #0aa696; }
+   .sticker h4, h5         { color: #352e2f; }
+   .sticker p              { color: #ffffff; }
+   
+   .numeral                { color: #0aa696; }
+   .press .column a        { color: #0aa696; }
+   
+   .code-links td          { background-color: #fff; }
+   
+   .header                 { border-bottom: 2px solid #352e2f; }
+   .lower,
+   .footer                 { border-top: 2px solid #352e2f; }
+   
+   
+   
+   /* ==========================================================
+      Features
+      ========================================================== */
+   
+   /* Animations
+      ========================================================================== */
+   .sticker                { transition: background-color 0.5s ease; }
+   .social-links a,
+   .accordion button       { transition: color 0.5s ease; }
+   
+   /* Dropshadow
+      ========================================================================== */
+   .dropshadow {
+     -webkit-box-shadow: 4px 4px 5px 0px rgba(50, 50, 50, 0.15);
+     -moz-box-shadow:    4px 4px 5px 0px rgba(50, 50, 50, 0.15);
+     box-shadow:         4px 4px 5px 0px rgba(50, 50, 50, 0.15); }
+   
+   /* Slider
+      ========================================================================== */
+   .slider             { clear: both; margin: 0px auto 10px auto; }
+   .slide-viewer       { position: relative; /* needed for IE7 */ overflow: hidden;}
+   .slide-group        { width: 100%; height: 100%; position: relative;  margin: 0px; padding: 0px; }
+   .slide              { width: 100%; height: 100%; display: none; position: absolute; }
+   .slide:first-child  { display: block; }
+   .slide-buttons      { text-align: center; }
+   .slide-btn          { border: none; background: none; color: #fff; font-size: 160%; line-height: 0.6em; padding: 0px; }
+   .slide-btn.active, 
+   .slide-btn:hover    { color: #958f89; cursor: pointer;}
+   
+   /* Accordion 
+      ========================================================================== */
+   .accordion          { list-style-type: none; padding: 0px; width: 100%; border-bottom: 1px solid #958f89;}
+   
+   .accordion button   { font-size: 100%; font-weight: bold; line-height: 1.2em; text-align: left; 
+                         background: none; background-image: url(../images/interface/arrow.png);
+                         background-repeat: no-repeat; background-position: 0.5em, 0.5em;
+                         padding-left: 20px; padding-top: 0.5em;
+                         border-top: 1px solid #958f89; border-left: none; border-right: none; border-bottom: none;
+                         width: 100%;}
+   
+   .accordion button.open    { background-image: url(../images/interface/arrow-down.png); background-position: 0.2em, 0.5em; }
+   .accordion button:hover,
+   .accordion-panel a:hover  { color: #ee717c; cursor: pointer; }
+   .accordion-panel          { display: none;  padding: 5px 5px 8px 20px; }
+   .accordion-panel a        { color: #352e2f; font-weight: normal; }
+   
+   /* Extras (filters / keycodes)
+      ========================================================================== */
+   #filters                { margin-bottom: 1em; }
+   #filters button         { border:none; border-radius: 5px; background-color: #efefef; 
+                             padding: 0.3em 0.6em; padding: 0.3em 0.6em; }
+   #filters button:hover   { background-color: #352e2f; color: #fff; cursor: pointer; }
+   #wordlist               { margin-bottom: 2em; }
+   #wordlist span          { display: inline-block; padding: 0.3em 0.6em; margin: 0.3em 0.6em; border-radius: 5px; width: 8em; font-weight: 600; background-color: #ccc; }
+   #wordlist span.active   { color: #fff; background-color: #0aa696; }
+   .keycodes th, 
+   .keycodes td            { text-align: center; }
+   
+   /* Buy / Download Links / Stickers
+      ========================================================== */
+   .buy-link,
+   .download-link          { display: block; position: relative; 
+                             text-indent: 100%; white-space: nowrap; overflow: hidden; z-index: 10000; }
+   
+   .buy-link               { width: 90px; height: 90px; 
+                             background-image: url(../images/interface/button-buy.png); background-repeat: no-repeat;} 
+   .buy-link:hover         { background-position: 0px -90px; }
+   
+   .download-link          { width: 180px; height: 180px; margin: 0px auto; 
+                             background-image: url(../images/interface/button-download.png); background-repeat: no-repeat; } 
+   .download-link:hover    { background-position: 0px -180px; }
+   
+   .sticker                { border: none; border-radius: 50%; width: 8em; height: 8em; padding: 1.3em; }
+   .sticker h4, h5         { margin: 0px; }
+   .sticker h4             { margin: 0.4em 0 0.6em 0; }
+   .sticker p              { margin: 0.3em 0; }
+   .order .sticker         { float: left; }
+   
+   /* Chapter list
+      ========================================================== */
+   .chapter-list           { border-top: 1px solid #958f89; padding: 0; }
+   .chapter-list li        { list-style-type: none; line-height: 1.8em; border-bottom: 1px solid #958f89; }
+   
+   /* Release dates - to be deleted with the release dates
+      ========================================================== */
+   table.release-dates     { width: 100%; border-top: 1px solid #958f89; border-bottom: 1px solid #958f89; margin-bottom: 2em; }
+   table.release-dates td,
+   table.release-dates th  { line-height: 1.2em; padding: 0.5em 1em 0.5em 0em; text-align: left; }
+   table.release-dates th  { border-bottom: 1px solid #958f89; font-weight: normal; text-transform: uppercase; }
+   table.book-type         { max-width: 14em; }
+   
+   /* Lists of code samples
+      ========================================================== */
+   .code-samples h2            { font-weight: normal; }
+   .code-samples h2 span       { color: #958f89; }
+   .code-links                 { border-collapse: separate; border-spacing: 5px; width: 100%; margin-bottom: 4em; margin-top: 2em; }
+   table.code-links th         { background: transparent; font-weight: normal; text-transform: uppercase; }
+   table.code-links td         { padding: 10px; }
+   table.code-links td a       { color: #0aa696; }
+   table.code-links td.number  { text-align: center; }
+   table.code-links td.name    { font-weight: bold; }
+   .button-chapters            { display: block; float: right; width: auto; margin-top: 10px;}
+   .button-chapters            { background-color: #0aa696; color: #fff; border-radius: 5px; padding: 10px; }
+   .button-chapters:hover      { background-color: #ee717c; color: #fff; }
+   
+   
+   /* Font Icons - made using Fontello
+      ========================================================================== */
+   @font-face {
+     font-family: 'icons';
+     src: url('../fonts/icons.eot?44629120');
+     src: url('../fonts/icons.eot?44629120#iefix') format('embedded-opentype'),
+          url('../fonts/icons.woff?44629120') format('woff'),
+          url('../fonts/icons.ttf?44629120') format('truetype'),
+          url('../fonts/icons.svg?44629120#icons') format('svg');
+     font-weight: normal;
+     font-style: normal;}
+    
+   [class^="icon-"]:before,
+   [class*=" icon-"]:before {
+     font-family: "icons"; font-style: normal; font-weight: normal; speak: none; 
+     display: inline-block; text-decoration: inherit;
+     width: 1em; margin-right: .2em; text-align: center;
+     font-variant: normal;
+     text-transform: none; }
+    
+   .icon-location:before           { content: '\e800'; }
+   .icon-mail:before               { content: '\e801'; }
+   .icon-facebook-circled:before   { content: '\e802'; }
+   .icon-pinterest-circled:before  { content: '\e803'; }
+   .icon-twitter-circled:before    { content: '\e804'; }
+   .icon-gplus-circled:before      { content: '\e805'; }
+   .icon-linkedin-circled:before   { content: '\e806'; }
+   .icon-monitor:before            { content: '\e807'; }
+   .icon-flickr-circled:before     { content: '\e808'; }
+   
+   
+   /* ========================================================== 
+      Layout
+      ========================================================== */
+   *, *:before, *:after { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;}
+   
+   /* Clearfix by Nicolas Gallagher ============================ */
+   .clearfix:before,
+   .clearfix:after       { content: " "; display: table;}
+   .clearfix:after       { clear: both; }
+   .clearfix             { *zoom: 1; }
+   
+   /* Blocks  ================================================== */
+   .container            { margin: 0 auto; }
+   .assets               { padding-top: 3em; }
+   .press .column,
+   .credits              { margin-bottom: 2em; }
+   .stockists li b       { display: block; }
+   .code-chapter         { background-repeat: no-repeat; padding: 2em; display: block; }
+   .quote-box            { clear: left; padding: 1em 0; margin-top: 1em; }
+   .clear                { clear: left; }
+   .bullets              { padding: 0px; }
+   #facebook             { overflow: hidden;}
+   
+   /* Image sizes =============================================== */
+   img                   { display: block; height: auto; margin: 0 auto 1em auto; width: 100%; border: 0;}
+   img.actual            { width: auto; }
+   .diamond-box          { display: inline-block; width: 98px; height: 98px; overflow: hidden; z-index: 10000;}
+   .diamond-logo         { display: inline-block; width: 98px; height: 98px; overflow: hidden; }
+   .diamond-logo         { text-indent: 100%; white-space: nowrap; 
+                           background-image: url(diamond-logo-sprite.png); background-repeat: no-repeat;} 
+   .diamond-logo:hover   { background-position: 0px -98px; }
+   
+   .wiley-logo           { width: 90px; height: 19px; }
+   .divider              { background-image: url(/images/interface/divider.png); background-repeat: no-repeat; background-position: 50% 50%; }
+   
+   
+   /* Lower / footer =========================================== */
+   .lower                { padding: 1em 0em 1em 0em;  min-height: 5em; }
+   .social-links a       { position: relative; top: -10px;}
+   .footer               { min-height: 50px; padding-top: 1em; } 
+   .footer .navigation a { display: inline-block; margin: 0em 0.8em; }
+   
+   
+   /* RESPONSIVE STUFF
+      ==========================================================
+      Small:   320 - 767   ( centered at 320  )
+      Medium:  768 - 959   ( columns at 768  )
+      Large:   960 - 1279  ( columns at 960  )
+      X-Large: 1280+       ( columns at 1280 )
+      ========================================================== */
+   
+   /* Small : 320 - 767
+      ========================================================== */
+   
+   @media (max-width: 767px) {
+     .container               { width: 320px; }
+     .column                  { margin-bottom: 1em; }
+   
+     .slide-viewer            { height: 210px; }
+     .full .slide-viewer      { height: 135px; margin-top: 2.5em; }
+     .quote-box .slide-viewer { height: 130px; margin-top: 1.5em; }
+   
+     h1                       { font-size: 1.4em; margin: 0px auto; clear: both; }
+     h2                       { font-size: 1.5em%; }
+     p                        { font-size: 1em; }
+   
+     /* header ================================================== */ 
+     .header                  { padding: 20px 0px 40px 0px; margin-bottom: 20px; }
+     .diamond-box             { width: 100%; height: 60px; }
+     .diamond-logo            { width: 45px; height: 45px; 
+                                background-image: url(../images/interface/diamond-logo-sprite-mobile.png); } 
+     .diamond-logo:hover      { background-position: 0px -45px; }
+     .first-nav               { float: left; width: 50%; }
+     .second-nav              { float: left; width: 50%; }
+     .header .first-nav a, 
+     .header .second-nav a    { margin: 0px 10px 10px 10px; }
+   
+     /* footer  =================================================== */
+     #facebook                { max-width: 320px; text-align: center; }
+     #twitter, #facebook, 
+     #pinterest, #google      { text-align: center; margin: 0px; }
+     .social-likes            { clear: both; }
+     .footer .social-links    { text-align: center; padding-top: 10px; }
+   
+     /* main   =================================================== */
+     section                 { padding: 0em 0em 0em 0em; }
+     .lower                  { padding-top: 1em; }
+   
+     .buy-link               { margin: 0px auto 10px auto; display: block; }
+     .third .cover           { position: relative; }
+     .cover .buy-link        { position: absolute; top: 320px; right: 10px; }
+     .quote-box,
+     .cover-stickers         { display: none; }
+     .other-books            { padding-top: 1.1em; }
+     .order h2               { text-align: center; }
+     .order .cover           { width: 250px; margin: 0px auto 0px auto; display: block; }
+     .order .sticker         { display: none; }
+   
+     .code-chapter           { height: 206px; background-image: url('/images/interface/chapter-background-320.png'); }
+     .series img             { width: 80px; height: 100px; float: left; margin-right: 1em; }
+   
+     .divider                { display: none; }
+   }
+   
+   /* Tablet and up : 768+ (also applies to desktop)
+      ========================================================== */
+   @media (min-width: 768px) {
+     /* Now with space for columns */
+     .column               { float: left; }
+     .column.full          { width: 100%; }
+     .column.two-thirds    { width: 66.7%; }
+     .column.half          { width: 50%; }
+     .column.third         { width: 33.3%; }
+     .column.fourth        { width: 25%; }
+     .column.flow-opposite { float: right; }
+     .one                  { width: 10%; }
+     .two                  { width: 17%; }
+     .five                 { width: 44% }
+     .eight                { width: 60%; }
+   
+     /* header */
+     .header               { padding: 20px 0px 0px 0px; margin-bottom: 30px; min-height: 140px; }
+     .first-nav            { clear: none !important; float: left; width: 240px; }
+     .second-nav           { clear: none; float: right; width: 240px; }
+     .header .first-nav a  { display: inline-block; margin: 80px 0px 10px 50px; }
+     .header .second-nav a { display: inline-block; margin: 80px 50px 10px 0px; }
+   
+     /* footer */
+     .lower, .footer       { clear: both; padding: 1em 0em 0em 0em;}
+     .footer .two          { text-align: left; }
+     .footer .social-links { text-align: right; padding-right: 0px; }
+     .column.social-likes  { padding-top: 40px; }
+     #twitter              { width: 60px; float: left; }
+     #pinterest            { width: 50px; float: left; }
+     #google               { width: 40px; float: left; }
+     #facebook             { max-width: 240px; float: left;} 
+     .series img           { width: 80px; height: 100px; float: left; margin-right: 1em; margin-left: 25px; }
+     .divider              { height: 100px; }
+   
+     /* body */
+     .third .cover         { position: relative; }
+     .buy-link             { float: left; margin: 0em 2em 1em 0em; }
+     .half p               { clear: left; }
+     .breaker              { display: block; }
+     .five strong          { display: block; padding-left: 3em; margin-bottom: 1em;}
+     .order .cover         { float: left; width: 250px; margin-right: 0.3em; }
+     .cover .buy-link      { position: absolute; top: 220px; right: 5px; margin: 0px; }
+   }
+   
+   
+   /* Medium : 768 - 959
+      ========================================================== */
+   @media screen and (min-width : 768px) and (max-width : 959px) {
+     .container            { max-width: 768px; }
+     .column               { padding: 0px 20px }
+     .half                 { padding: 0px 20px; margin-bottom: 20px; }
+     .first-nav            { clear: none !important; float: left; width: 270px; }
+   
+     .slide-viewer         { height: 230px; }
+     .full .slide-viewer   { height: 315px; margin-top: 2.5em; }
+     .quote-box .slide-viewer { height: 160px; margin-top: 1.5em; }
+   
+     /* text sizes */
+     .full h1              { font-size: 1.7em; margin-bottom: 30px; }
+     .half h2              { font-size: 1.1em; margin-top: 35px; }
+     h2                    { font-size: 1.5em; }
+     h3                    { font-size: 1em; }
+     p, li                 { font-size: 1em; }
+     .bullets              { font-size: 0.9em; }
+     p.intro               { font-size: 1.2em; margin-bottom: 1em;}
+     .sticker              { font-size: 20px; }
+     .quote                { font-size: 220%; }
+     .order .sticker       { margin: -2.5em 0.2em 1.2em 0.2em; }
+     .cover-stickers       { clear: both; margin-top: 60px; }
+     .code-chapter         { height: 246px; background-image: url('/images/interface/chapter-background-768.png'); }
+     .chapter-list li      { line-height: 1.4em; padding: 0.1em 0em;}
+   }
+   
+   /* Desktop and up : 960+ 
+      ========================================================== */
+   
+   @media screen and (min-width : 960px) {
+     .header .container    { width: 910px; }
+     .column               { padding: 0px 25px }
+     .first-nav            { clear: none !important; float: left; width: 390px; }
+     .second-nav           { float: right; width: 390px; }
+     .header .first-nav a  { display: inline-block; margin: 80px 70px 10px 30px; }
+     .header .second-nav a { display: inline-block; margin: 80px 30px 10px 70px; }
+   
+     .full .slider         { margin-bottom: 3em; }
+     .full .slide-viewer   { height: 325px; margin-top: 2.5em; }
+   
+     .third .cover         { max-width: 240px; margin: 0px auto 0px auto; position: relative; }
+     .cover .buy-link      { position: absolute; top: 250px; right: -45px; } 
+     .order .sticker       { margin: -2.5em 0.1em 1.2em 0.1em; float: left; }
+     .sticker              { font-size: 20px; }
+     span.a                { display: block; clear: left; margin-bottom: 1em; }
+   }
+   
+   
+   /* Larger : 960 - 1279
+      ========================================================== */
+   @media screen and (min-width : 960px) and (max-width : 1279px) {
+     .container            { width: 960px; }
+     .half                 { padding: 0px 30px 20px 30px; }
+     .other-books          { padding-top: 10px; }
+   
+     /* sliders */
+     .slide-viewer            { height: 280px; }
+     .full .slide-viewer      { height: 395px; margin-top: 2.5em; }
+     .quote-box .slide-viewer { height: 240px; margin-top: 1.5em; }
+   
+     /* text sizes */
+     .full h1              { font-size: 2.06em; margin-bottom: 40px; }
+     .half h2              { font-size: 1.44em; padding-top: 0.8em;}
+     h2                    { font-size: 1.9em; }
+     p, bullets            { font-size: 1.1em; }
+     p.intro               { font-size: 1.4em; }
+     .quote                { font-size: 2.8em; }
+   
+     .order .sticker       { margin: -0.4em 0.2em 0.5em 0.2em; }
+   
+     .code-chapter         { height: 256px; background-image: url('/images/interface/chapter-background-960.png'); }
+   }
+   
+   /* Largest : > 1280 
+      ========================================================== */
+   @media only screen and (min-width : 1280px) {
+     .container            { max-width: 1280px; }
+     .full                 { padding: 0px 25px 0px 25px; }
+     .half                 { padding: 0px 25px 0px 25px; margin-bottom: 50px;}
+     .other-books          { padding-top: 30px; }
+   
+     .slide-viewer         { height: 390px; }
+     .full .slide-viewer   { height: 535px; margin-top: 2.5em; }
+     .quote-box .slide-viewer  { height: 275px; margin-top: 1.5em; }
+   
+     .full h1              { font-size: 2.8em; margin-bottom: 1em; }
+     h2                    { font-size: 2.4em; }
+     .half h2              { font-size: 2.2em; }
+     p                     { font-size: 1.5em; line-height: 1.3em; }
+     .bullets              { font-size: 1.4em; line-height: 1.3em; }
+     .chapter-list li      { font-size: 1.2em; }
+     .text p, p.text       { font-size: 1.2em; margin: 0em 0em 1em 0em; }
+     .quote                { font-size: 3.2em; }
+   
+     .order .sticker       { margin: 4em 0.3em 0.5em 0.3em; }
+     .third .cover         { margin: 0px auto 0px auto; max-width: 240px; position: relative; }
+   
+     .stockists li b       { display: inline-block; width: 8em; }
+   
+     .code-chapter         { height: 256px; background-image: url('/images/interface/chapter-background.png'); }
+   }
+
+  table {
+    width: 1000px;}
+  th, td {
+    padding: 7px 10px 10px 10px;}
+  th {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 90%;
+    border-bottom: 2px solid #111111;
+    border-top: 1px solid #999;
+    text-align: left;}
+  tr.even {
+    background-color: #efefef;}
+  tr:hover {
+    background-color: #c3e6e5;}
+  .money {
+    text-align: right;}

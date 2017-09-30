@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Notifications Sample</title>
+		<link rel="stylesheet" href="style.css">
+		<!-- <link rel="stylesheet" type="text/css" href="http://javascriptbook.com/fonts/183733/D6DB7E6AA6DC2084C.css" /> -->
+	</head>
+	
+	<body>
+		<header class="header">
+			<div class="container">
+
+				<div class="diamond-box">
+				<a href="window.html" title="Home" class="diamond-logo">home</a>
+				</div>
+				<div class="first-nav">
+				<a href="insert.html" >插入</a>
+				<a href="query.html" >查询</a>
+				</div>
+				<div class="second-nav">
+				<a href="/extras/" >Extras</a>
+				<a href="/buy/" >Buy</a>
+				</div>
+
+			</div><!-- .container -->
+        </header>
+        
+        <form action="" method="get"> 
+            <p>开始查询
+            <select id="se" name="devices"> 
+                    <option value="type">模拟器类型</option> 
+                    <option value="name">模拟器名字</option>
+                    <option value="ipAddress">模拟器ip地址</option>
+                    <option value="hostPort">socketidl的端口号</option>
+                    <option value="adbPort">adb的端口号</option>
+                    <option value="serialPort">模拟器的串口号</option>
+                    <option value="controlPort">控制电源的小盒子的串口号</option>
+                    <option value="country">仕向地</option>
+            </select>
+            <input id="sql" type="text" name="queryname" size="15" maxlength="50">
+            <input type="button" value="查询" onclick="queryinformation()">
+            </p>
+        </form>
+        <script src="window.js"></script>
+
+        <table border="1">
+            <tr>
+                <th>模拟器类型</th>
+                <th>模拟器名字</th>
+                <th>模拟器ip地址</th>
+                <th>socketidl的端口号</th>
+                <th>adb的端口号</th>
+                <th>模拟器的串口号</th>
+                <th>控制电源的小盒子的串口号</th>
+                <th>仕向地</th>
+            </tr>
+        </table>
+	</body>
+</html>
