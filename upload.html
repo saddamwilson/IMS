@@ -25,7 +25,7 @@
 			</div><!-- .container -->
 		</header>
 
-		<form id="login" method="POST">
+		<!-- <form id="login" method="POST">
 			模拟器类型: <input type="text" name="type"> <br>
 			模拟器名字: <input type="text" name="name"> <br>
 			模拟器ip地址: <input type="text" name="ipAddress"> <br>
@@ -35,6 +35,12 @@
 			控制电源的小盒子的串口号: <input type="text" name="controlPort"> <br>
 			仕向地: <input type="text" name="country"> <br> 
 		  <input type="button" value="Submit" onclick="saveinformation()">
+		</form> -->
+
+		<form  method="post" enctype="multipart/form-data">
+			<p>上传Excel:</p>
+			<input id="excelid" type="file" name="user-song" /><br />
+			<input type="submit" value="Upload" onclick="uploadinformation()"/>
 		</form>
 		<script src="window.js"></script>
 	</body>

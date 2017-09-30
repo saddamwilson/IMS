@@ -3,7 +3,8 @@ var DataStore = require('nedb');
 var db = new DataStore({filename:'device.db', autoload:true})
 var nodeConsole = require('console');
 var myConsole = new nodeConsole.Console(process.stdout, process.stderr);
-myConsole.log("nihao");
+var xlsx = require('node-xlsx');
+var dbkey = ['type','name','ipAddress','hostPort','adbPort','serialPort','controlPort','country']
 
 function saveinformation(){
     myConsole.log("saveinformation");
@@ -27,9 +28,9 @@ function queryinformation(){
     var sql = document.getElementById('sql');
     var options = select.options;
     var index = select.selectedIndex;  
-    var select = {};
-    select[options[index].value] = sql.value;
-    db.find(select, function(err, newDoc){
+    var selectresult = {};
+    selectresult[options[index].value] = sql.value;
+    db.find(selectresult, function(err, newDoc){
         //myConsole.log("err" + err);
         myConsole.log("newDoc: " + JSON.stringify(newDoc));
         updataList(newDoc);
@@ -57,8 +58,30 @@ function updataList(list){
     }
 }
 
+function uploadinformation(){
+    myConsole.log("uploadinformation");
+    var id = document.getElementById("excelid");
+    var obj = xlsx.parse(id.files[0].path)
+    var info = {};
+    for(var i=1; i<obj[0].data.length; i++)
+    {
+        for(var j=0; j<obj[0].data[i].length; j++)
+        {
+
+            info[dbkey[j]] = obj[0].data[i][j];
+        }
+        
+    }
+    db.insert(info, function(err, newDoc){
+        myConsole.log("err" + err);
+    })
+    myConsole.log(JSON.stringify(info));
+    myConsole.log("id.value: " + id.files[0].path);
+}
 // document.addEventListener('DOMContentLoaded', function() {
 //   document.getElementById("basic").addEventListener("click", doNotify);
 //   document.getElementById("image").addEventListener("click", doNotify);
 //   //document.getElementById("login").addEventListener("click", saveinformation);
 // })
+
+
